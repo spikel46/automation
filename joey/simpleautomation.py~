@@ -1,0 +1,18 @@
+import requests, urllib.parse, urllib.request
+
+from bs4 import BeautifulSoup as bs
+
+page = urllib.request.urlopen("https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.buzzfeed.com%2Fclaudiarosenbaum%2Fkardashians-blac-chyna-nda-drama%3Futm_term%3D.reAJaAGDN%23.fg4OAa7yv&h=ATP5Mc3inrD7o-ndpa850AkJR415b1PG9GY0cT-oE1W988kaqY4SpMaGeUmghHO1NstH4QHV-qPpuuweFmGrkuZeSXkCmX39Vyes2wQJ4Z9NW4bpu-ZFJNfnO4yKQ1gwjyI")
+soup = bs(page)
+
+count = 0
+
+for image in soup.find_all("img"):
+    try:
+        image_url = image["data-src"]
+        print(image_url)
+        filename = './' + str(count) + "kimk.jpg"
+        urllib.request.urlretrieve(image_url, filename)
+        count += 1
+    except Exception as e:
+        pass
