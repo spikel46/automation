@@ -11,14 +11,14 @@ soup = bs(page)
 #so that we can name the images uniquely
 count = 0
 
-<html>
+"""<html>
   <head>
   </head>
   <body>
     <p> this is my image </p>
     <img data-src="thisismyrealsource.net"></img>
   </body>
-</html>
+</html>"""
 #for individual images found by soup.find_all("img")
 for image in soup.find_all("img"): #find all a,div,li,ul,body,p,h1-6
     #if error is thrown in try block go to except block
