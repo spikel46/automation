@@ -26,7 +26,7 @@ for i in range(0,5):
         urllib.request.urlretrieve(image_url, filename)
         count += 1
     #only go to except block if try block failed
-    except Exception as e:
+   except Exception as e:
         pass
                                      
   #open previous link
