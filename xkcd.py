@@ -3,7 +3,8 @@ import urllib.request
 from bs4 import BeautifulSoup as bs
 
 #open page
-page = page = urllib.request.urlopen('https://xkcd.com'')
+'link'= 'http://xkcd.com'
+page = urllib.request.urlopen('link')
 
 #make html an object
 soup = bs(page)
@@ -30,5 +31,5 @@ for i in range(0,5):
                                      
   #open previous link
   prevLink = soup.select('a[rel="prev"]')
-  url = 'http://xkcd.com' + prevLink.get('href')
+  link = 'http://xkcd.com' + prevLink.get('href')
                                      
