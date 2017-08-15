@@ -3,8 +3,13 @@ import requests, os
 import urllib.request
 from bs4 import BeautifulSoup as bs
 
-#open page
-page = urllib.request.urlopen("http://xkcd.com")
+#open page, make directory to download comics to
+url = "http://xkcd.com"
+page = urllib.request.urlopen(url)
+os.makedirs('xkcd', exist_ok=True)
+
+#the farthest back url will end with a hashtag
+#while not url.endswith('#')
 
 #make html an object
 soup = bs(page,"html.parser")
@@ -19,7 +24,7 @@ for image in soup.find_all("img"):
         image_url = 'https:' + image["src"]
         print(image_url)
         #create filename for image
-        filename = './' + str(count) + "xkcd.jpg"
+        filename = './xkcd/' + str(count) + "xkcd.jpg"
         #download image
         urllib.request.urlretrieve(image_url, filename)
         count += 1
@@ -41,7 +46,7 @@ for image in soup.find_all("img"):
         image_url = 'https:' + image["src"]
         print(image_url)
         #create filename for image
-        filename = './' + str(count) + "xkcd.jpg"
+        filename = './xkcd/' + str(count) + "xkcd.jpg"
         #download image
         urllib.request.urlretrieve(image_url, filename)
         count += 1
