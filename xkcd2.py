@@ -8,7 +8,7 @@ url = "http://xkcd.com"
 os.makedirs('xkcd', exist_ok=True)
 
 #page = urllib.request.urlopen(url)
-
+count = 0
 
 #the farthest back url will end with a hashtag
 while not url.endswith('#'):
@@ -38,7 +38,7 @@ while not url.endswith('#'):
             res = requests.get(image_url)
             res.raise_for_status()
         #create filename for image
-            count = 0
+            #count = 0
             filename = './xkcd/' + str(count) + "xkcd.jpg"
         #download image
             urllib.request.urlretrieve(image_url, filename)
